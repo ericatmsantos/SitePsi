@@ -714,7 +714,7 @@ a:hover {
         height: auto;
 }
 
-    /* 4. Seção Sobre (e outras seções de 2 colunas) */
+    /* Seção Sobre (e outras seções de 2 colunas) */
     .sobre-content,
     .contato-content {
         flex-direction: column; /* Coloca o texto e imagem/formulário em coluna */
@@ -743,8 +743,7 @@ a:hover {
     flex-direction: column; /* Coloca a frase e o botão um abaixo do outro */
     gap: 15px; /* Espaçamento entre a frase e o botão */
     padding: 30px 20px; /* Garante padding interno suficiente para a frase */
-}
-
+    }
     
     /* Centraliza o texto nas seções onde o layout mudou para coluna */
     .sobre-psicologa .sobre-text,
@@ -754,7 +753,82 @@ a:hover {
     
     .contato-info {
         padding: 30px; /* Reduz o padding interno do bloco azul */
+        /*text-align: center;*/
     }
+
+    /* Coluna de Informações (Caixa Azul) */
+    .contato-info {
+         flex: auto; /* Ocupa a largura total */
+         /* Reduz o padding interno, pois telas pequenas têm menos espaço */
+         padding: 30px 20px; 
+         /* Garante que ocupe a largura total, resolvendo problemas de 'fora da caixa' */
+         width: 100%; 
+         align-items: center;
+    }
+    
+
+    /* Remove o display: flex que causou o problema de vazamento */
+    .contato-detalhes li {
+        display: block; 
+        margin-bottom: 20px;
+        line-height: 1.5; /* Aumenta a altura da linha para clareza */
+    }
+    .contato-detalhes li strong {
+        /* Faz o rótulo (WhatsApp:) e o link aparecerem como blocos, mas... */
+        display: inline-block; 
+        margin-right: 10px; /* Mantém um pequeno espaço após o rótulo */
+    }
+
+    /* Aplica display: block (ou bloco inline) ao link para forçar a nova linha */
+    .contato-detalhes li a {
+        /* Força o número/e-mail a começar em uma nova linha no mobile */
+        display: block; 
+        /* Adiciona padding/margem para alinhar o número/e-mail sob o rótulo */
+        padding-left: 32px; /* Largura do ícone (22px) + margem (10px) = 32px */
+
+    }
+
+    /* O texto principal e seus filhos ocupam o espaço restante */
+    .contato-detalhes li strong,
+    .contato-detalhes li a,
+    .contato-detalhes .small-text {
+        /* Permite que o texto se quebre e ocupe o restante do container */
+        max-width: 100%; 
+    }
+
+    .contato-detalhes li:nth-child(3) a {
+        padding-left: 10px; /* Ajuste específico para o e-mail */;
+        font-size: 15px;
+    }
+
+
+
+
+
+
+/* O ícone fica na esquerda e o texto flui ao lado */
+.contato-detalhes .icon {
+    font-size: 22px; 
+    margin-right: 10px;
+    display: inline-block; /* Permite que o texto flua ao lado dele */
+    width: 22px; /* Damos uma largura fixa para o ícone */
+    text-align: center;
+}
+
+/* O texto secundário (Resposta em 24h) */
+.contato-detalhes .small-text {
+    font-size: 13px;
+    margin: 3px 0 0 0; 
+    /* Adicionamos uma margem esquerda para o texto pequeno para alinhá-lo */
+    padding-left: 32px; /* (22px de largura do ícone + 10px de margin) */
+    opacity: 0.8;
+}
+
+.contato-detalhes li strong,
+.contato-detalhes li a {
+    /* Garante que eles fiquem alinhados logo após o ícone */
+    display: inline;
+}
 
 
     /* 6. Rodapé (Footer) */
