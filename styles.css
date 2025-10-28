@@ -1,0 +1,830 @@
+/* -------------------------------------------------------------------------- */
+/* Estilos Globais e Variáveis CSS */
+/* -------------------------------------------------------------------------- */
+
+/* 1. Reset Básico para Consistência */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Garante que padding e border não alterem a largura/altura */
+}
+
+/* 2. Definição de Variáveis (Cores e Fontes) */
+:root {
+    /* Cores da Paleta */
+    --cor-primaria: #2F5763;      /* Azul Petróleo Profundo (Confiança) */
+   /* --cor-secundaria: #9D7858;   /* Marrom Claro/Taupe (Conexão) */
+    --cor-enfase-cta: #D4A06B;   /* Dourado Suave (CTA) */
+    --cor-fundo-claro: #F4F4F4;  /* Fundo da página */
+    --cor-texto-principal: #333333; /* Texto */
+
+   /* CONSOLIDANDO: A cor secundária agora usa a mesma cor de ênfase */
+    --cor-secundaria: var(--cor-enfase-cta); 
+
+    /* Tipografia */
+    --fonte-titulo: 'Poppins', sans-serif; /* Títulos */
+    --fonte-corpo: 'Lato', sans-serif;     /* Corpo do texto, links */
+
+/* -------------------------------------------------------------------------- */
+/* Ajuste para Header Fixo (Scroll Padding) */
+/* -------------------------------------------------------------------------- */
+
+/* Define a altura do Header Fixo para compensar a rolagem suave. */
+/* O header tem 80px, vamos arredondar para 90px para dar uma margem */
+html {
+    scroll-padding-top: 90px;
+    scroll-behavior: smooth; /* Alternativa moderna para o JS! */
+}
+
+}
+
+/* 3. Estilos Base (Body e Container) */
+body {
+    font-family: var(--fonte-corpo);
+    color: var(--cor-texto-principal);
+    background-color: var(--cor-fundo-claro);
+    line-height: 1.6; /* Melhora a leitura */
+    font-size: 18px; /* Fonte base confortável */
+
+    
+}
+
+/* Estilo para Títulos */
+h1, h2, h3 {
+    font-family: var(--fonte-titulo);
+    color: var(--cor-primaria);
+}
+
+/* Container para Centralizar Conteúdo */
+.container {
+    max-width: 1200px; /* Largura máxima para desktop */
+    margin: 0 auto;
+    padding: 0 20px; /* Padding nas laterais para telas menores */
+}
+
+/* Estilo para Links */
+a {
+    text-decoration: none;
+    color: var(--cor-primaria);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--cor-secundaria);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Estilo do Cabeçalho (Header) */
+/* -------------------------------------------------------------------------- */
+#header {
+    background-color: #FFFFFF; /* Fundo Branco Puro */
+    position: fixed; /* Fixa o cabeçalho no topo ao rolar */
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Garante que fique acima de outros elementos */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Sombra suave para destacar */
+}
+
+/* Container de Navegação */
+.nav-content {
+    display: flex;
+    justify-content: space-between; /* Logo na esquerda, links na direita */
+    align-items: center;
+    min-height: 80px; /* Altura mínima do cabeçalho */
+}
+
+/* Estilo do Logo/Nome */
+.logo {
+    font-family: var(--fonte-titulo);
+    font-weight: 700;
+    font-size: 24px;
+    color: var(--cor-primaria); /* Azul Petróleo Profundo */
+}
+
+/* Estilo da Lista de Links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px; /* Espaço entre os itens do menu */
+    align-items: center;
+}
+
+.nav-links li a {
+    font-family: var(--fonte-corpo);
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--cor-primaria);
+}
+
+.nav-links li a:hover {
+    color: var(--cor-secundaria); /* Marrom Claro no hover */
+}
+
+/* Estilo do Botão CTA (Chamada para Ação) no Menu */
+.cta-link {
+    background-color: var(--cor-enfase-cta); /* Dourado Suave */
+    color: #FFFFFF !important; /* Cor do texto branca */
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: 600; /* Poppins Semibold */
+    transition: background-color 0.3s ease;
+}
+
+.cta-link:hover {
+   background-color: #C3925C; /* Dourado um pouco mais escuro no hover */
+   color: #FFFFFF; /* Garante que o texto permaneça branco */
+}
+
+/* -------------------------------------------------------------------------- */
+/* Estilo da Seção Hero */
+/* -------------------------------------------------------------------------- */
+.hero {
+    background-color: var(--cor-fundo-claro); /* Fundo Cinza Claro */
+    padding-top: 150px; /* Espaçamento superior para compensar o header fixo */
+    padding-bottom: 100px;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    gap: 80px; /* Espaço entre o texto e a imagem */
+}
+
+.hero-text {
+    flex: 1.5; /* O texto ocupa mais espaço (cerca de 60%) */
+    max-width: 650px;
+}
+
+.hero-image {
+    flex: 1; /* A imagem ocupa o espaço restante (cerca de 40%) */
+    display: flex; /* Para centralizar/controlar a imagem */
+    justify-content: flex-end;
+}
+
+/* Estilo do Título Principal (H1) */
+.hero-text h1 {
+    font-size: 56px; /* Tamanho grande e impactante */
+    line-height: 1.2;
+    margin-bottom: 20px;
+    font-weight: 700; /* Poppins Extra-Bold */
+    color: var(--cor-primaria);
+}
+
+/* Destaque no H1 */
+.highlight {
+    color: var(--cor-enfase-cta); /* Dourado Suave */
+}
+
+/* Estilo do Subtítulo (P) */
+.hero-text p {
+    font-size: 20px;
+    margin-bottom: 40px;
+    font-weight: 400; /* Lato Regular */
+}
+
+/* Estilo da Imagem */
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px; /* Bordas levemente arredondadas */
+    border: 5px solid var(--cor-secundaria);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo do Botão Principal (Reutilizável) */
+.btn {
+    display: inline-block;
+    padding: 15px 35px;
+    border-radius: 8px;
+    font-family: var(--fonte-titulo);
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+.btn-primary {
+    background-color: var(--cor-enfase-cta); /* Dourado Suave */
+    color: #FFFFFF;
+    border: 2px solid var(--cor-enfase-cta);
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: var(--cor-enfase-cta); /* Texto Dourado no hover */
+}
+
+/* -------------------------------------------------------------------------- */
+/* Estilo da Seção Sobre a Psicóloga */
+/* -------------------------------------------------------------------------- */
+.sobre-psicologa {
+    background-color: #FFFFFF; /* Fundo Branco */
+    padding: 100px 0;
+}
+
+.sobre-content {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+}
+
+/* Invertendo a ordem das colunas para variar o layout */
+.sobre-text {
+    flex: 1.5;
+    order: 2; /* Move o texto para a direita em desktop */
+}
+
+.sobre-image {
+    flex: 1;
+    display: flex;
+    order: 1; /* Move a imagem para a esquerda em desktop */
+}
+
+.sobre-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border: 5px solid var(--cor-secundaria);
+}
+
+/* Estilo para o parágrafo de destaque (lead) */
+.lead-text {
+    font-size: 20px;
+    font-weight: 500; /* Um pouco mais encorpado */
+    color: var(--cor-secundaria); /* Marrom Claro para o destaque da conexão */
+    margin: 20px 0 30px;
+}
+
+/* Estilo da Lista de Diferenciais */
+.diferenciais-list {
+    list-style: none;
+    margin: 30px 0;
+}
+
+.diferenciais-list li {
+    font-size: 18px;
+    margin-bottom: 15px;
+    font-family: var(--fonte-titulo); /* Usa Poppins para os itens */
+    color: var(--cor-primaria);
+}
+
+.diferenciais-list .icon {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+/* Estilo para o Botão Secundário */
+.btn-secondary {
+    background-color: transparent;
+    color: var(--cor-primaria);
+    border: 2px solid var(--cor-primaria);
+}
+
+.btn-secondary:hover {
+    background-color: var(--cor-primaria);
+    color: #FFFFFF;
+}
+/* -------------------------------------------------------------------------- */
+/* Estilo da Seção Serviços/Abordagens */
+/* -------------------------------------------------------------------------- */
+.servicos {
+    background-color: var(--cor-fundo-claro); /* Fundo Cinza Claro */
+    padding: 100px 0;
+    text-align: center; /* Centraliza o título e o subtítulo */
+}
+
+.servicos h2 {
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    font-size: 18px;
+    color: var(--cor-texto-principal);
+    max-width: 800px;
+    margin: 0 auto 50px; /* Centraliza e adiciona espaço */
+}
+
+/* Layout Grid para os Cards */
+.servicos-grid {
+    display: grid;
+    /* 4 colunas em desktop, com espaço de 30px */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+/* Estilo do Card Individual */
+.servico-card {
+    background-color: #FFFFFF; /* Fundo Branco (destaca sobre o fundo cinza) */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    text-align: left; /* Alinha o conteúdo do card à esquerda */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-height: 250px; /* Garante altura mínima para uniformidade */
+}
+
+/* Efeito Hover Acolhedor */
+.servico-card:hover {
+    transform: translateY(-5px); /* Efeito sutil para cima */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.servico-icon {
+    font-size: 32px;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.servico-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    min-height: 50px; /* Garante que o título não desloque o texto */
+    color: var(--cor-primaria);
+    font-weight: 600; /* Poppins Semibold */
+}
+
+.servico-card p {
+    font-size: 16px;
+    color: var(--cor-texto-principal);
+}
+
+/* Estilo para a CTA de Dúvidas */
+.servicos-cta {
+    background-color: #FFFFFF;
+    padding: 40px;
+    border-radius: 8px;
+    border: 1px solid rgba(47, 87, 99, 0.1); /* Borda sutil */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.servicos-cta p {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--cor-primaria);
+    margin: 0; /* Remove margem padrão do parágrafo */
+}
+
+/* -------------------------------------------------------------------------- */
+/* Estilo da Seção Interculturalidade (Artigos) */
+/* -------------------------------------------------------------------------- */
+.interculturalidade {
+    background-color: #FFFFFF; /* Fundo Branco */
+    padding: 100px 0;
+}
+
+/* Centraliza os textos que precisam ser centralizados */
+.text-center {
+    text-align: center;
+}
+
+.artigos-grid {
+    display: grid;
+    /* 3 colunas em desktop */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px;
+    margin-top: 50px;
+}
+
+/* Estilo do Card de Artigo */
+.artigo-card {
+    background-color: var(--cor-fundo-claro); /* Fundo sutilmente cinza */
+    padding: 30px;
+    border-radius: 8px;
+    text-align: left;
+    border-top: 5px solid var(--cor-primaria); /* Linha de destaque no topo */
+}
+
+.artigo-tag {
+    display: inline-block;
+    background-color: var(--cor-secundaria); /* Usa o Dourado Suave */
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 5px 10px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.artigo-card h3 {
+    font-size: 20px;
+    min-height: 60px;
+    margin-bottom: 10px;
+}
+
+.artigo-card p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.read-more {
+    font-weight: 600;
+    color: var(--cor-primaria); /* Azul Petróleo */
+    transition: color 0.3s ease;
+}
+
+.read-more:hover {
+    color: var(--cor-secundaria); /* Dourado no hover */
+}
+
+.mt-50 {
+    margin-top: 50px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Estilo da Seção Contato/Agendamento */
+/* -------------------------------------------------------------------------- */
+.contato {
+    background-color: var(--cor-fundo-claro);
+    padding: 100px 0;
+}
+
+.contato-content {
+    display: flex;
+    gap: 60px;
+}
+
+/* Coluna de Informações (Esquerda) */
+.contato-info {
+    flex: 1;
+    background-color: var(--cor-primaria); /* Fundo Azul Petróleo */
+    color: #FFFFFF; /* Texto branco sobre fundo escuro */
+    padding: 40px;
+    border-radius: 8px;
+    height: fit-content; /* Ajusta a altura ao conteúdo */
+}
+
+.contato-info h2 {
+    color: #FFFFFF;
+    margin-bottom: 20px;
+}
+
+.contato-info .lead-text {
+    color: rgba(255, 255, 255, 0.85); /* Tom de branco suave */
+    font-size: 18px;
+    font-weight: 300;
+    margin-bottom: 40px;
+}
+
+/* Lista de Detalhes de Contato */
+.contato-detalhes {
+    list-style: none;
+}
+
+.contato-detalhes li {
+    margin-bottom: 25px;
+    font-size: 18px;
+    line-height: 1.4;
+}
+
+.contato-detalhes li strong {
+    font-weight: 600;
+    font-family: var(--fonte-titulo);
+}
+
+.contato-detalhes li a {
+    color: var(--cor-secundaria); /* Links em Dourado Suave */
+}
+
+.contato-detalhes .small-text {
+    font-size: 14px;
+    opacity: 0.7;
+    margin: 3px 0 0 35px; /* Alinha o texto pequeno */
+}
+
+.contato-detalhes .icon {
+    font-size: 24px;
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: top; /* Alinha o ícone com o topo do texto */
+}
+
+/* Coluna do Formulário (Direita) */
+.contato-form-wrapper {
+    flex: 1.5; /* O formulário ocupa um pouco mais de espaço */
+    padding: 20px;
+}
+
+.form-title {
+    font-size: 24px;
+    font-family: var(--fonte-titulo);
+    font-weight: 600;
+    color: var(--cor-primaria);
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.contato-form label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: var(--cor-primaria);
+}
+
+.contato-form input[type="text"],
+.contato-form input[type="email"],
+.contato-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: var(--fonte-corpo);
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.contato-form input:focus,
+.contato-form textarea:focus {
+    border-color: var(--cor-secundaria); /* Borda Dourada no foco */
+    outline: none;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Estilo do Rodapé (Footer) */
+/* -------------------------------------------------------------------------- */
+
+#footer {
+    background-color: var(--cor-primaria); /* Azul Petróleo Profundo */
+    color: #FFFFFF;
+    padding: 50px 0 20px;
+}
+
+.footer-content {
+    /* Espaça os itens ao máximo, garantindo que o logo e as colunas fiquem 
+       nas "pontas" do container, mas com espaçamento interno equilibrado */
+    display: flex;
+    justify-content: space-between; 
+    gap: 40px; /* Espaço entre as colunas */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 30px;
+    margin-bottom: 20px;
+}
+
+.footer-col {
+    /* Faz com que todas as 3 colunas (branding, nav, social) 
+       ocupem exatamente a mesma porção de espaço no container. */
+    flex: 1; 
+}
+
+.footer-branding .logo {
+    color: #FFFFFF;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.footer-branding {
+    flex: 1.5; /* Mais espaço para o Branding e as credenciais */
+    text-align: left; /* Garante que o texto volte para a esquerda (como na imagem) */
+}
+
+
+.footer-nav .footer-social{
+    flex: 1;
+    text-align: left; /* Garante alinhamento à esquerda */
+}
+
+.credentials-text {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-top: 15px;
+    opacity: 0.8;
+}
+
+#footer h4 {
+    font-family: var(--fonte-titulo);
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--cor-secundaria); 
+}
+
+#footer ul {
+    list-style: none;
+}
+
+#footer ul li a {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 18px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+#footer ul li a:hover {
+    color: var(--cor-secundaria); 
+}
+
+.copyright {
+    font-size: 14px;
+    opacity: 0.6;
+    margin-top: 15px;
+}
+
+/* Links Sociais */
+.social-links a {
+    font-size: 24px;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+    color: #FFFFFF;
+}
+
+.social-links a:hover {
+    color: var(--cor-secundaria); 
+}
+
+/* ========================================================================== */
+/* RESPONSIVIDADE (MEDIA QUERIES) */
+/* ========================================================================== */
+
+@media (max-width: 1024px) { /* Ajustes para Laptops/Telas Médias */
+    
+    .container {
+        max-width: 90%; /* Usa 90% da largura para não ficar muito apertado */
+    }
+
+    .hero-text h1 {
+        font-size: 48px; /* Reduz o tamanho do H1 para telas menores */
+    }
+
+    .servicos-grid {  /* Muda de 4 colunas para 2 colunas */
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .artigos-grid {  /* Muda de 3 colunas para 2 colunas */
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+
+@media (max-width: 768px) {  /* Ajustes Específicos para Tablets e Smartphones */
+
+    /* 1. Estilos Gerais para Mobile */
+    body {
+        font-size: 16px; /* Reduz a fonte base */
+    }
+
+    /* 2. Cabeçalho (Header) */
+    .nav-content {
+        min-height: 60px; /* Reduz a altura do header */
+    }
+
+    /* Esconde os links do menu principal em mobile (Será substituído por um menu hambúrguer via JS) */
+    .nav-links {
+        display: none; 
+    }
+    
+    /* 3. Seção Hero (Dobra Inicial) */
+    .hero {
+        padding-top: 100px; /* Menos padding superior */
+        padding-bottom: 60px;
+    }
+    
+    .hero-content {
+        flex-direction: column; /* Coloca o conteúdo em coluna (um abaixo do outro) */
+        text-align: center; /* Centraliza o texto */
+        gap: 40px;
+    }
+
+    .hero-text h1 {
+        font-size: 32px; /* Redução drástica do H1 para caber na tela */
+    }
+
+    .hero-image {
+        order: -1; /* Manda a imagem para cima do texto */
+        justify-content: center;
+    }
+
+    /* 4. Seção Sobre (e outras seções de 2 colunas) */
+    .sobre-content,
+    .contato-content {
+        flex-direction: column; /* Coloca o texto e imagem/formulário em coluna */
+        gap: 40px;
+    }
+    
+    .sobre-text {
+        order: 1; /* Garante que o texto fique em cima da imagem */
+    }
+
+    .sobre-image,
+    .contato-info,
+    .contato-form-wrapper {
+        flex: auto; /* Permite que ocupe a largura total */
+    }
+
+    /* 5. Seção Serviços e Interculturalidade (Cards) */
+    .servicos-grid,
+    .artigos-grid {
+        /* Muda de 2 colunas (no 1024px) para 1 coluna */
+        grid-template-columns: 1fr;
+    }
+    
+    /* Centraliza o texto nas seções onde o layout mudou para coluna */
+    .sobre-psicologa .sobre-text,
+    .contato-info {
+        text-align: left; /* Mantém alinhamento à esquerda para melhor leitura */
+    }
+    
+    .contato-info {
+        padding: 30px; /* Reduz o padding interno do bloco azul */
+    }
+
+
+    /* 6. Rodapé (Footer) */
+    .footer-content {
+        flex-direction: column; /* Coloca as colunas do rodapé uma abaixo da outra */
+        text-align: center; /* Centraliza o texto de todo o rodapé */
+        gap: 30px;
+    }
+
+    .footer-col,
+    .footer-branding,
+    .footer-nav,
+    .footer-social {
+        flex: auto; /* Ocupa a largura total */
+        text-align: center; /* Centraliza todos os textos no rodapé */
+    }
+
+    .footer-branding .logo,
+    .credentials-text,
+    .copyright {
+        text-align: center; /* Garante que o branding também centralize */
+    }
+
+    .social-links {
+        justify-content: center; /* Centraliza os ícones sociais */
+    }
+
+
+/* ... Dentro de @media (max-width: 768px) ... */
+
+    /* NOVO: Estilo para o botão de toggle (Hambúrguer) */
+    .menu-toggle {
+        display: block; /* Mostra o botão em mobile */
+        background: transparent;
+        border: none;
+        color: var(--cor-primaria);
+        font-size: 30px;
+        cursor: pointer;
+        z-index: 1001; /* Garante que fique acima de tudo */
+    }
+
+    /* Sobrescreve a regra anterior para mostrar a lista de links em mobile */
+    .nav-links {
+        /* ESTADO FECHADO - Padrão em mobile */
+        display: none; 
+        
+        /* ESTILO DO MENU ABERTO (Fullscreen Overlay) */
+        position: absolute;
+        top: 60px; /* Abaixo do header */
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 60px); /* Altura da tela menos o header */
+        background-color: var(--cor-primaria); /* Fundo Azul Petróleo */
+        flex-direction: column; /* Links em coluna */
+        justify-content: center; /* Centraliza os links verticalmente */
+        align-items: center;
+        gap: 30px;
+        padding: 40px 0;
+        z-index: 999;
+    }
+    
+    /* Quando a classe 'active' for adicionada pelo JS */
+    .nav-links.active {
+        display: flex; 
+    }
+
+    /* Estilo dos links no menu aberto */
+    .nav-links li a {
+        color: #FFFFFF; /* Texto Branco */
+        font-size: 24px;
+        font-weight: 600;
+    }
+
+    /* Ajuste para o CTA no menu aberto */
+    .nav-links li a.cta-link {
+        background-color: var(--cor-secundaria);
+        color: var(--cor-primaria) !important; /* Cor Primária no CTA para contraste */
+        padding: 12px 25px;
+        border-radius: 5px;
+        margin-top: 20px;
+    }
+}
+
+/* NOVO: Esconde o botão em telas maiores que 768px */
+@media (min-width: 769px) {
+    .menu-toggle {
+        display: none;
+    }
+}
