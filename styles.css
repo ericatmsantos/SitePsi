@@ -648,12 +648,16 @@ a:hover {
 
 @media (max-width: 1024px) { /* Ajustes para Laptops/Telas Médias */
     
+    .logo {
+        font-size: 16px; /* Reduz o tamanho do logo */
+    }
+
     .container {
         max-width: 90%; /* Usa 90% da largura para não ficar muito apertado */
     }
 
     .hero-text h1 {
-        font-size: 48px; /* Reduz o tamanho do H1 para telas menores */
+        font-size: 45px; /* Reduz o tamanho do H1 para telas menores */
     }
 
     .servicos-grid {  /* Muda de 4 colunas para 2 colunas */
@@ -805,7 +809,6 @@ a:hover {
     
 
 
-
 /* O ícone fica na esquerda e o texto flui ao lado */
 .contato-detalhes .icon {
     font-size: 22px; 
@@ -856,7 +859,7 @@ a:hover {
         justify-content: center; /* Centraliza os ícones sociais */
     }
 
-    /* NOVO: Estilo para o botão de toggle (Hambúrguer) */
+    /* Estilo para o botão de toggle (Hambúrguer) */
     .menu-toggle {
         display: block; /* Mostra o botão em mobile */
         background: transparent;
