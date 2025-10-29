@@ -784,8 +784,15 @@ a:hover {
         /* Força o número/e-mail a começar em uma nova linha no mobile */
         display: block; 
         /* Adiciona padding/margem para alinhar o número/e-mail sob o rótulo */
-        padding-left: 32px; /* Largura do ícone (22px) + margem (10px) = 32px */
+      /*  padding-left: 32px; /* Largura do ícone (22px) + margem (10px) = 32px */
 
+    }
+
+
+
+    .contato-detalhes li:nth-child(3) a {
+        padding-left: 10px; /* Ajuste específico para o e-mail */;
+        font-size: 15px;
     }
 
     /* O texto principal e seus filhos ocupam o espaço restante */
@@ -795,14 +802,7 @@ a:hover {
         /* Permite que o texto se quebre e ocupe o restante do container */
         max-width: 100%; 
     }
-
-    .contato-detalhes li:nth-child(3) a {
-        padding-left: 10px; /* Ajuste específico para o e-mail */;
-        font-size: 15px;
-    }
-
-
-
+    
 
 
 
@@ -831,7 +831,7 @@ a:hover {
 }
 
 
-    /* 6. Rodapé (Footer) */
+    /* Rodapé (Footer) */
     .footer-content {
         flex-direction: column; /* Coloca as colunas do rodapé uma abaixo da outra */
         text-align: center; /* Centraliza o texto de todo o rodapé */
@@ -855,9 +855,6 @@ a:hover {
     .social-links {
         justify-content: center; /* Centraliza os ícones sociais */
     }
-
-
-/* ... Dentro de @media (max-width: 768px) ... */
 
     /* NOVO: Estilo para o botão de toggle (Hambúrguer) */
     .menu-toggle {
@@ -912,9 +909,17 @@ a:hover {
     }
 }
 
-/* NOVO: Esconde o botão em telas maiores que 768px */
+/* Esconde o botão em telas maiores que 768px */
 @media (min-width: 769px) {
     .menu-toggle {
         display: none;
+    }
+}
+
+@media (max-width: 426px) {
+    .contato-detalhes li:nth-child(1) a {
+        padding-left: 10px; /* Ajuste específico para o whatsapp */;
+        font-size: 15px;
+        display: block; 
     }
 }
