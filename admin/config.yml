@@ -1,0 +1,21 @@
+backend:
+  name: git-gateway # Permite autenticação via Netlify
+  branch: main       # O branch que o CMS irá editar no GitHub
+
+# Define onde os arquivos de conteúdo serão salvos
+media_folder: "assets/uploads" 
+public_folder: "/assets/uploads"
+
+# Define o que o usuário pode editar (Nossa seção de Artigos)
+collections:
+  - name: "artigos" # Nome da coleção no painel do CMS
+    label: "Artigos Interculturais"
+    folder: "artigos" # Pasta onde os arquivos Markdown serão salvos (CRIE ESTA PASTA NA RAIZ)
+    create: true      # Permite criar novos artigos
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Define a estrutura do nome do arquivo
+    fields:
+      - {label: "Layout", name: "layout", widget: "hidden", default: "post"}
+      - {label: "Título", name: "title", widget: "string"}
+      - {label: "Tag/Tópico", name: "tag", widget: "string", hint: "Ex: Empresas, Identidade, Família"}
+      - {label: "Data de Publicação", name: "date", widget: "datetime", format: "YYYY-MM-DD hh:mm:ss"}
+      - {label: "Corpo do Artigo", name: "body", widget: "markdown"}
